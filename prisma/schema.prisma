@@ -7,46 +7,49 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Trip{
-  id String @id @default(uuid())
-  name String
-  location String
-  startDate DateTime
-  endDate DateTime
-  pricePerDay Decimal @db.Decimal(8,2)
+model Trip {
+  id          String   @id @default(uuid())
+  name        String
+  location    String
+  startDate   DateTime
+  endDate     DateTime
+  pricePerDay Decimal  @db.Decimal(8, 2)
   description String
-  coverImage String
-  imageUrl String[]
-  highligths String[]
-  maxGuests Int
-
+  coverImage  String
+  imagesUrl    String[]
+  highligths  String[]
+  maxGuests   Int
+  countryCode String
+  recommended Boolean  @default(false)
+  highlights          String[]
   reservations TripReservation[]
 }
 
-model TripReservation{
-  id String @id @default(uuid())
+
+model TripReservation {
+  id     String @id @default(uuid())
   tripId String
-  trip Trip @relation(fields: [tripId],references: [id])
+  trip   Trip   @relation(fields: [tripId], references: [id])
 
   userId String
-  user User @relation(fields: [userId],references: [id])
+  user   User   @relation(fields: [userId], references: [id])
 }
 
 // https://authjs.dev/reference/adapter/prisma
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -82,3 +85,7 @@ model VerificationToken {
 }
 
 //remember npx prisma migrate dev --name auth
+//npx prisma format
+//npx prisma studio
+//npx prisma db seed
+
