@@ -10,6 +10,12 @@
 
 A aplicação tem como objetivo a criação de um sistema de reserva de viagens com uma plataforma bastante intuitiva que permite aos viajantes explorar e reservar suas aventuras com facilidade. Com uma ampla seleção de destinos, opções de hospedagem, voos e atividades, o aplicativo oferece uma experiência personalizada, adaptada às preferências individuais de cada usuário. Com recursos como avaliações de usuários, dicas de viagem e itinerários personalizados, a aplicação visa simplificar o processo de planejamento, garantindo que os viajantes encontrem as melhores opções e tenham uma experiência memorável em cada jornada.
 
+## :memo: Objetivos Especificos 
+* Facilitar o processo de reserva com uma ampla variedade de opções;
+* Garantir informações precisas e atualizadas;
+* Integrar sistemas de pagamento e segurança;
+* Proporcionar uma experiência personalizada, como recomendações de viagem com base nos interesses e histórico de reservas dos usuários, para tornar as sugestões mais relevantes e adaptadas às preferências individuais;
+
 ## 🚀 Tecnologias 
 Aplicação completa para viagens desenvolvida em 2 camadas(Back-end/Front-end).
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -37,7 +43,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
   - Stripe
 
 ## 💻 Figma
-### Home/Busca
+### Home/Busca 
 ![Captura de tela de 2023-07-10 16-31-40](https://github.com/BrunaEduarda03/Trips/assets/73250271/29cd64ae-a501-464a-9c8a-723093c64337)
 
 ### Hospedagem
