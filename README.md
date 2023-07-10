@@ -1,6 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div  align="center" >
 
-## Getting Started
+<h1>
+<img alt="BarberPro" src="https://github.com/BrunaEduarda03/Trips/assets/73250271/4d3b648a-68a1-4811-83b5-9e83224136ab" width="350px" align="center" />
+</h1> 
+
+</div>
+
+## :man_technologist: Sobre a aplicação
+
+A aplicação tem como objetivo a criação de um sistema de reserva de viagens com uma plataforma bastante intuitiva que permite aos viajantes explorar e reservar suas aventuras com facilidade. Com uma ampla seleção de destinos, opções de hospedagem, voos e atividades, o aplicativo oferece uma experiência personalizada, adaptada às preferências individuais de cada usuário. Com recursos como avaliações de usuários, dicas de viagem e itinerários personalizados, a aplicação visa simplificar o processo de planejamento, garantindo que os viajantes encontrem as melhores opções e tenham uma experiência memorável em cada jornada.
+
+## 🚀 Tecnologias 
+Aplicação completa para viagens desenvolvida em 2 camadas(Back-end/Front-end).
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+- **UI/UX**
+- Figma
+
+- **Backend**           
+  - PrismaORM
+  - Beekeper
+  - PostgreSQL
+  - Supabase
+  - TypeScript
+  - ESLint
+  
+- **FrontEnd**
+  - NextJs
+  - TypeScript
+  - TailwindCss
+  - ESLint
+  - React-toastify
+  - Docker
+
+- **Serviço de Pagamentos**
+  - Stripe
+
+## 💻 Figma
+### Home/Busca
+![Captura de tela de 2023-07-10 16-31-40](https://github.com/BrunaEduarda03/Trips/assets/73250271/29cd64ae-a501-464a-9c8a-723093c64337)
+
+### Hospedagem
+![Captura de tela de 2023-07-10 16-56-36](https://github.com/BrunaEduarda03/Trips/assets/73250271/a246416e-4462-4b6c-8ae1-097c8066599e)
+
+### Viagens
+![Captura de tela de 2023-07-10 17-00-00](https://github.com/BrunaEduarda03/Trips/assets/73250271/44d47b89-6de5-4410-90a0-deca37e8561b)
+
+
+## 💻 Preview
+
+
+## 🛠️ Como instalar
 
 First, run the development server:
 
@@ -22,17 +72,17 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+### :balance_scale: Licença
+Este projeto está licenciado sob a [licença MIT](LICENSE).
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### :speaking_head:  Dúvidas ou feedbacks sobre o projeto!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+E-mail: [**brunaduda37@gmail.com**](mailto:brunaduda37@gmail.com)
 
-## Deploy on Vercel
+Linkedin: [Bruna Eduarda](https://www.linkedin.com/in/bruna-eduarda-a06a1b18b/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Desenvolvido por: [Bruna Eduarda Cruz Maciel](https://www.linkedin.com/in/bruna-eduarda-a06a1b18b/)
