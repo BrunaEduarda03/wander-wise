@@ -31,7 +31,8 @@ model TripReservation {
   id     String @id @default(uuid())
   tripId String
   trip   Trip   @relation(fields: [tripId], references: [id])
-
+  startDate DateTime
+  endDate   DateTime
   userId String
   user   User   @relation(fields: [userId], references: [id])
 }
