@@ -3,13 +3,12 @@
 import Button from '@/components/Button'
 import DatePicker from '@/components/DatePicker'
 import Input from '@/components/Input'
-import { Trip } from '@prisma/client'
-import { differenceInDays } from 'date-fns'
+import { differenceInDays, max } from 'date-fns'
 import React from 'react'
 import { Controller, useForm } from 'react-hook-form'
 
 interface TripReservationsProps {
-  trip:Trip;
+  tripId: string;
   tripStartDate: Date;
   tripEndDate: Date;
   maxGuests: number;
@@ -21,17 +20,29 @@ interface TripReservationsForm {
   endDate:Date | null;
 }
 
-const onSubmit = (data:any) => {
-console.log({data});
 
-}
 
-function TripReservations({trip,maxGuests,tripStartDate,tripEndDate,pricePerDay}:TripReservationsProps) {
+function TripReservations({tripId,maxGuests,tripStartDate,tripEndDate,pricePerDay}:TripReservationsProps) {
   const {register,handleSubmit,formState:{errors},control,watch} = useForm<TripReservationsForm>();
+
+  const onSubmit = async (data: TripReservationsForm) => {
+    const response = await fetch("http://localhost:3000/api/trips/check", {
+      method: "POST",
+      body: Buffer.from(
+        JSON.stringify({
+          startDate: data.startDate,
+          endDate: data.endDate,
+          tripId,
+        })
+      ),
+    });
+    const res= await response.json();
+    console.log(res);
+    
+  }
 
   const startDate = watch("startDate");
   const endDate = watch("endDate");
-
   return (
     <div className='flex flex-col px-5'>
       <div className="flex gap-4">
@@ -89,12 +100,17 @@ function TripReservations({trip,maxGuests,tripStartDate,tripEndDate,pricePerDay}
           required:{
             value:true,
             message:'Número de hospedes é obrigatório!'
+          },
+          max:{
+            value:maxGuests,
+            message:`Número de hospedes não pode ser maior que ${maxGuests}`
           }
         })} 
         placeholder={`Número de Hóspedes (Máx ${maxGuests})`} 
         className='mt-4' 
         error={!!errors?.guest}
         errorMessage={errors?.guest?.message}
+        type='number'
       />
       <div className="flex justify-between mt-3 ">
         <p className='font-medium text-sm text-primaryDarker'>Total</p>
@@ -116,4 +132,4 @@ function TripReservations({trip,maxGuests,tripStartDate,tripEndDate,pricePerDay}
   )
 }
 
-export default TripReservations
+export default TripReservations;

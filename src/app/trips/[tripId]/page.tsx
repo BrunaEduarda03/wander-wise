@@ -25,7 +25,7 @@ async function TripDetails({params}:{params:{tripId:string}}) {
   return (
     <div className='container mx-auto '>
       <TripHeader trip={trip} />
-      <TripReservations trip={trip} tripStartDate={trip.startDate} tripEndDate={trip.endDate} maxGuests={trip.maxGuests} pricePerDay={trip.pricePerDay as any} />
+      <TripReservations tripId={trip.id} tripStartDate={trip.startDate} tripEndDate={trip.endDate} maxGuests={trip.maxGuests} pricePerDay={trip.pricePerDay as any} />
       <TripDescription description={trip.description} />
       <TripHighlights highlights={trip.highlights} />
       <TripLocation location={trip.location} locationDescription={trip.locationDescription} />
