@@ -25,7 +25,7 @@ function Mytrips() {
   };
 
   useEffect(() => {
-    if(status === 'unauthenticated' || !data?.user){
+    if(status === 'unauthenticated'){
       router.push('/');
     }
     fetchReservations();
@@ -34,7 +34,7 @@ function Mytrips() {
     <div className='container mx-auto p-5'>
       <div className='text-primaryDarker text-xl font-semibold'>Suas Viagens</div>
       {reservations.length > 0 ? (reservations.map((reservations)=>(
-        <UserReservations reservations={reservations} key={reservations.id} />
+        <UserReservations fetchReservations={fetchReservations}  reservations={reservations} key={reservations.id} />
       ))):(
         <div>
           <p className=' text-primaryDarker mt-5 text-xl '>Você não possui nenhuma reserva!</p>

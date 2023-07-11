@@ -3,8 +3,6 @@ import { NextResponse } from "next/server";
 
 export async function DELETE(_request: Request, { params: { reservationId } }: { params: { reservationId: string } }) {
  
-  console.log({ reservationId });
-
   if (!reservationId) {
     return {
       status: 400,

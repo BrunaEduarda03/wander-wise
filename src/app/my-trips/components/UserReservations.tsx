@@ -11,9 +11,10 @@ interface UserReservationItem{
   reservations:Prisma.TripReservationGetPayload<{
     include: { trip: true };
   }>;
+  fetchReservations:()=>void;
 }
 
-function UserReservations({reservations}:UserReservationItem) {
+function UserReservations({reservations,fetchReservations}:UserReservationItem) {
   const handleClick = async() =>{
     const response = await fetch(`/api/trips/reservation/${reservations.id}`,{
       method:'DELETE'
@@ -22,7 +23,7 @@ function UserReservations({reservations}:UserReservationItem) {
       return toast.error("Ocorreu um erro ao cancelar a reserva!");
     }
     toast.success('Reserva cancelada com sucesso!');
-    
+    fetchReservations();
   }
   
   return (

@@ -24,7 +24,5 @@ export async function GET(request: Request, { params: { userId } }: { params: { 
     },
   });
 
-  console.log({ reservations });
-
   return new NextResponse(JSON.stringify(reservations), { status: 200 });
 }
