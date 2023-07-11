@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import UserReservations from './components/UserReservations';
-
+import Button from '@/components/Button';
 
 function Mytrips() {
   const {status,data} = useSession();
@@ -16,25 +16,36 @@ function Mytrips() {
     }>[]
   >([]);
   
-  const fetchReservation = async () =>{
-    const response = await fetch(`/api/user/${(data?.user as any).id}/reservations`);
+  const fetchReservations = async () => {
+    const response = await fetch(`/api/user/${(data?.user as any)?.id}/reservations`);
+
     const json = await response.json();
+
     setReservations(json);
-    
-  }
+  };
 
   useEffect(() => {
     if(status === 'unauthenticated' || !data?.user){
       router.push('/');
     }
-    fetchReservation();
+    fetchReservations();
   },[status,router])
   return (
     <div className='container mx-auto p-5'>
       <div className='text-primaryDarker text-xl font-semibold'>Suas Viagens</div>
-      {reservations.map((reservations)=>(
+      {reservations.length > 0 ? (reservations.map((reservations)=>(
         <UserReservations reservations={reservations} key={reservations.id} />
-      ))}
+      ))):(
+        <div>
+          <p className=' text-primaryDarker mt-5 text-xl '>Você não possui nenhuma reserva!</p>
+          <div className="flex flex-col mt-5 ">
+            <Button variant='primary' onClick={()=>router.push('/')}>
+              Fazer Reserva
+            </Button>
+          </div>
+        </div>
+      ) 
+    }
     </div>
   )
 }
