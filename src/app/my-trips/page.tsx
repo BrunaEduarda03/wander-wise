@@ -1,15 +1,20 @@
 'use client';
 
-import { TripReservation } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
+import UserReservations from './components/UserReservations';
+
 
 function Mytrips() {
   const {status,data} = useSession();
   const router = useRouter();
-  const [reservations,setReservations] = useState<TripReservation[]>([]);
- 
+  const [reservations, setReservations] = useState<
+    Prisma.TripReservationGetPayload<{
+      include: { trip: true };
+    }>[]
+  >([]);
   
   const fetchReservation = async () =>{
     const response = await fetch(`/api/user/${(data?.user as any).id}/reservations`);
@@ -25,7 +30,12 @@ function Mytrips() {
     fetchReservation();
   },[status,router])
   return (
-    <div>Mytrips</div>
+    <div className='container mx-auto p-5'>
+      <div className='text-primaryDarker text-xl font-semibold'>Suas Viagens</div>
+      {reservations.map((reservations)=>(
+        <UserReservations reservations={reservations} key={reservations.id} />
+      ))}
+    </div>
   )
 }
 
