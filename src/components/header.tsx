@@ -36,13 +36,13 @@ const Header = () =>{
           <Image src={data.user?.image!} alt={data.user?.name!} height={32} width={32} className='rounded-full shadow-md' />
         
        {menuIsOpen && (
-            <div className="z-50 absolute top-14 left-0 w-full h-[100px] bg-white rounded-lg shadow-md flex flex-col justify-center items-center">
+            <div className="z-50 absolute top-14 left-0 w-full h-[100px] bg-white rounded-lg shadow-md flex flex-col justify-center items-center gap-2">
               <Link href="/my-trips" onClick={() => setMenuIsOpen(false)}>
-                <button className="text-primary pb-2 border-b border-grayLighter border-solid text-sm font-semibold">My Trips</button>
+                <button className="text-primary pb-2 border-b border-grayLighter border-solid text-sm font-semibold">Minhas Viagens</button>
               </Link>
 
-              <button className="text-primary pt-2 text-sm font-semibold" onClick={handleLogOut} >
-                Logout
+              <button className="text-primary pt-2 pb-2 text-sm font-semibold" onClick={handleLogOut} >
+                Sair
               </button>
             </div>
           )}
