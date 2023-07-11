@@ -8,13 +8,14 @@ import ReactCountryFlag from 'react-country-flag';
 import { ptBR } from 'date-fns/locale';
 import Button from '@/components/Button';
 import { useSession } from 'next-auth/react';
+import { toast } from 'react-toastify';
 
 
 function TripConfirmation({params}:{params:{tripId:string}}) {
   const [trips,setTrips] = useState<Trip| null >();
   const [totalPrice,setTotalPrice] = useState <number>(0);
   const searchParams = useSearchParams();
-  const {status} = useSession();
+  const {status,data} = useSession();
   const router = useRouter();
 
   useEffect(() => {
@@ -28,9 +29,7 @@ function TripConfirmation({params}:{params:{tripId:string}}) {
         }),
       });
 
-      const res = await response.json();
-      console.log(res);
-      
+      const res = await response.json(); 
 
       if (res?.error) {
         return router.push("/");
@@ -48,13 +47,28 @@ function TripConfirmation({params}:{params:{tripId:string}}) {
   }, [status, searchParams, params, router]);
 
   if(!trips) return null;
+  console.log(data?.user);
 
   const startDate = new Date(searchParams.get("startDate") as string);
   const endDate = new Date(searchParams.get("endDate") as string);
   const guests = searchParams.get("guests");
 
-  const handleBuyClick = () =>{
-
+  const handleBuyClick = async() =>{
+      const response = await fetch('/api/trips/reservation', {
+        method: "POST",
+        body: Buffer.from(JSON.stringify({
+          tripId: params.tripId,
+          startDate: searchParams.get("startDate"),
+          endDate: searchParams.get("endDate"),
+          guests: Number(searchParams.get("guests")),
+          totalPaid:totalPrice,
+          userId:(data?.user as any).id,
+        }))
+      });
+      if(!response.ok){
+        toast.error('Ocorreu um erro ao realizar a reserva!');
+      }
+      toast.success('Reserva realizada com sucesso!');
   }
 
 
