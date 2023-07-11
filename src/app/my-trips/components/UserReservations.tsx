@@ -64,30 +64,3 @@ function UserReservations({reservations}:UserReservationItem) {
 }
 
 export default UserReservations;
-
-/*
-<div className='border-b border-grayLighter border-solid border shadow-sm mt-5 p-5 '>
-<div className="flex items-center border-b border-grayLighter pb-10 border-solid gap-3 w-full">
-  <div className='relative w-[124px] h-[106px]  '>
-    <Image 
-    src={trips?.coverImage} alt={trips?.name} fill 
-    style={{objectFit:'cover'}}
-    className='rounded-lg shadow-sm'
-    />
-  </div>
-  <div className="flex flex-col p-5">
-    <h2 className='text-xl text-primaryDarker font-semibold'>{trips.name}</h2>
-    <div className='flex gap-2 items-center'>
-      <ReactCountryFlag countryCode={trips.countryCode} svg/>
-      <p className='text-grayPrimary underline text-xs '>{trips.location}</p>
-    </div>
-  </div>
-</div>
-  <h3 className='text-sm text-primaryDarker font-semibold mt-5'>Informações do preço</h3>
-  <div className='flex justify-between mt-2'>
-    <p className='text-sm text-primaryDarker'>Total:</p>
-    <p className="font-medium">R${totalPrice}</p>
-  </div>
-  
-</div>
-*/
