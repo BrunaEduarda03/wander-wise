@@ -1,17 +1,21 @@
 'use client'
 import { Trip } from '@prisma/client';
 import Image from 'next/image';
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { format } from "date-fns";
 import React, { useEffect, useState } from 'react'
 import ReactCountryFlag from 'react-country-flag';
 import { ptBR } from 'date-fns/locale';
 import Button from '@/components/Button';
+import { useSession } from 'next-auth/react';
+
 
 function TripConfirmation({params}:{params:{tripId:string}}) {
   const [trips,setTrips] = useState<Trip| null >();
   const [totalPrice,setTotalPrice] = useState <number>(0);
   const searchParams = useSearchParams();
+  const {status} = useSession();
+  const router = useRouter();
   useEffect(()=>{
     async function fetchTrips() {
       const response = await fetch('/api/trips/check',{
@@ -26,9 +30,13 @@ function TripConfirmation({params}:{params:{tripId:string}}) {
 
       setTotalPrice(totalPrice);
       setTrips(trip);
+
+      if(status === 'unauthenticated'){
+        router.push('/');
+      }
     }
     fetchTrips();
-  },[ searchParams, params])
+  },[ searchParams, params,router,status]);
 
   if(!trips) return null;
 
@@ -37,7 +45,7 @@ function TripConfirmation({params}:{params:{tripId:string}}) {
   const guests = searchParams.get("guests");
 
   const handleBuyClick = () =>{
-    
+
   }
 
 
@@ -47,7 +55,7 @@ function TripConfirmation({params}:{params:{tripId:string}}) {
         <h2 className='text-primaryDarker font-semibold text-xl'>Sua viagem</h2>
           {/* CARD */}  
           <div className='border-b border-grayLighter border-solid border shadow-sm mt-5 p-5 '>
-            <div className="flex items-center border-b border-grayLighter pb-5 border-solid gap-3 w-full">
+            <div className="flex items-center border-b border-grayLighter pb-10 border-solid gap-3 w-full">
               <div className='relative w-[124px] h-[106px]  '>
                 <Image 
                 src={trips?.coverImage} alt={trips?.name} fill 
