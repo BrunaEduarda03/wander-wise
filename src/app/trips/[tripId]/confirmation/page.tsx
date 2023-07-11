@@ -16,27 +16,36 @@ function TripConfirmation({params}:{params:{tripId:string}}) {
   const searchParams = useSearchParams();
   const {status} = useSession();
   const router = useRouter();
-  useEffect(()=>{
-    async function fetchTrips() {
-      const response = await fetch('/api/trips/check',{
-        method: 'POST',
-        body:JSON.stringify({
+
+  useEffect(() => {
+    const fetchTrip = async () => {
+      const response = await fetch(`/api/trips/check`, {
+        method: "POST",
+        body: JSON.stringify({
           tripId: params.tripId,
           startDate: searchParams.get("startDate"),
           endDate: searchParams.get("endDate"),
-        })
-      })
-      const {trip,totalPrice} = await response.json();
+        }),
+      });
 
-      setTotalPrice(totalPrice);
-      setTrips(trip);
+      const res = await response.json();
+      console.log(res);
+      
 
-      if(status === 'unauthenticated'){
-        router.push('/');
+      if (res?.error) {
+        return router.push("/");
       }
+
+      setTrips(res.trip);
+      setTotalPrice(res.totalPrice);
+    };
+
+    if (status === "unauthenticated") {
+      router.push("/");
     }
-    fetchTrips();
-  },[ searchParams, params,router,status]);
+
+    fetchTrip();
+  }, [status, searchParams, params, router]);
 
   if(!trips) return null;
 
