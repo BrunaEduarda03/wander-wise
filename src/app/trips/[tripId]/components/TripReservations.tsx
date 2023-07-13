@@ -27,7 +27,7 @@ function TripReservations({tripId,maxGuests,tripStartDate,tripEndDate,pricePerDa
 
 
   const onSubmit = async (data: TripReservationsForm) => {
-    const response = await fetch("http://localhost:3000/api/trips/check", {
+    const response = await fetch("/api/trips/check", {
       method: "POST",
       body: Buffer.from(
         JSON.stringify({
