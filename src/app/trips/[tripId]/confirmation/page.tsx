@@ -9,6 +9,7 @@ import { ptBR } from 'date-fns/locale';
 import Button from '@/components/Button';
 import { useSession } from 'next-auth/react';
 import { toast } from 'react-toastify';
+import { loadStripe } from '@stripe/stripe-js';
 
 
 function TripConfirmation({params}:{params:{tripId:string}}) {
@@ -47,28 +48,35 @@ function TripConfirmation({params}:{params:{tripId:string}}) {
   }, [status, searchParams, params, router]);
 
   if(!trips) return null;
-  console.log(data?.user);
 
   const startDate = new Date(searchParams.get("startDate") as string);
   const endDate = new Date(searchParams.get("endDate") as string);
   const guests = searchParams.get("guests");
 
   const handleBuyClick = async() =>{
-      const response = await fetch('/api/trips/reservation', {
+      const response = await fetch('/api/payment', {
         method: "POST",
         body: Buffer.from(JSON.stringify({
           tripId: params.tripId,
           startDate: searchParams.get("startDate"),
           endDate: searchParams.get("endDate"),
           guests: Number(searchParams.get("guests")),
-          totalPaid:totalPrice,
-          userId:(data?.user as any).id,
+          totalPrice,
+          coverImage: trips.coverImage,
+          name: trips.name,
+          description: trips.description,
         }))
       });
       if(!response.ok){
         toast.error('Ocorreu um erro ao realizar a reserva!');
       }
       toast.success('Reserva realizada com sucesso!');
+      const { sessionId } = await response.json();
+      
+      const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY as string);
+
+      await stripe?.redirectToCheckout({ sessionId });
+
   }
 
 
