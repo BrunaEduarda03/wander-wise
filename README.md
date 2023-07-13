@@ -6,15 +6,51 @@
 
 </div>
 
-## :man_technologist: Sobre a aplicação
+## 💬 Sobre a aplicação
 
 A aplicação tem como objetivo a criação de um sistema de reserva de viagens com uma plataforma bastante intuitiva que permite aos viajantes explorar e reservar suas aventuras com facilidade. Com uma ampla seleção de destinos, opções de hospedagem, voos e atividades, o aplicativo oferece uma experiência personalizada, adaptada às preferências individuais de cada usuário. Com recursos como avaliações de usuários, dicas de viagem e itinerários personalizados, a aplicação visa simplificar o processo de planejamento, garantindo que os viajantes encontrem as melhores opções e tenham uma experiência memorável em cada jornada.
 
-## :memo: Objetivos Especificos 
+## :memo: Objetivos Gerais
 * Facilitar o processo de reserva com uma ampla variedade de opções;
 * Garantir informações precisas e atualizadas;
 * Integrar sistemas de pagamento e segurança;
 * Proporcionar uma experiência personalizada, como recomendações de viagem com base nos interesses e histórico de reservas dos usuários, para tornar as sugestões mais relevantes e adaptadas às preferências individuais;
+
+## :man_technologist: Objetivos Específicos
+
+1. ***Configuração inicial*** 
+* Configurar um novo projeto Next.js com as dependências necessárias.
+* Integrar o Tailwind CSS para estilização da aplicação.
+* Configurar o React Hook Form para gerenciar o formulário de reserva.
+
+2. ***Integração com APIs externas***
+
+* Integrar APIs de terceiros para obter informações atualizadas sobre as opções de reserva.
+* Implementar a integração com a API do Stripe para processar pagamentos de forma segura.
+
+4. ***Experiência personalizada***
+* Armazenar e gerenciar o histórico de reservas dos usuários.
+* Implementar um sistema de recomendações de viagem com base nos interesses e histórico de reservas dos usuários, fornecendo sugestões relevantes para tornar a experiência mais personalizada.
+
+5. ***Validações***
+
+* Criar um formulário de reserva usando o React Hook Form para coletar informações do usuário, como datas, número de hóspedes, preferências, etc.
+* Validar e verificar os dados do formulário antes de prosseguir para o checkout.
+* Lidar com erros de validação de formulário e fornecer feedback adequado ao usuário.
+* Tratar erros de integração com APIs externas e exibir mensagens de erro relevantes.
+
+6. ***Processamento de pagamentos***
+
+* Integrar o Stripe para processar pagamentos com cartão de crédito ou outros métodos de pagamento suportados.
+* Implementar um fluxo de pagamento seguro, onde as informações do cartão do usuário são tratadas de forma segura e os pagamentos são processados com sucesso.
+Gerenciamento de erros e feedback:
+
+
+7. ***Testes e otimização***
+
+* Escrever testes automatizados para garantir que as funcionalidades principais da aplicação estejam funcionando corretamente.
+* Otimizar o desempenho da aplicação, melhorando o tempo de carregamento e a responsividade.
+
 
 ## 🚀 Tecnologias 
 Aplicação completa para viagens desenvolvida em 2 camadas(Back-end/Front-end).
@@ -70,17 +106,11 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+OBS: This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ### :balance_scale: Licença
 Este projeto está licenciado sob a [licença MIT](LICENSE).
-
 
 #### :speaking_head:  Dúvidas ou feedbacks sobre o projeto!
 
@@ -89,6 +119,5 @@ E-mail: [**brunaduda37@gmail.com**](mailto:brunaduda37@gmail.com)
 Linkedin: [Bruna Eduarda](https://www.linkedin.com/in/bruna-eduarda-a06a1b18b/)
 
 ---
-
 
 Desenvolvido por: [Bruna Eduarda Cruz Maciel](https://www.linkedin.com/in/bruna-eduarda-a06a1b18b/)
