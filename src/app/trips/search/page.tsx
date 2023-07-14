@@ -28,12 +28,13 @@ const Trips = () => {
 
   return (
     <div className="container mx-auto flex flex-col items-center lg:items-start p-5 lg:pt-10">
-      <div className="text-primaryDarker font-semibold text-xl">Hospedagens Encontradas</div>
-      <div className="text-grayPrimary text-base">{trips.length > 0 ?'Listamos as melhores opções para você!': 'Não encontramos nada nas filtragens!'}</div>
-      
-      {(trips.map((trip)=>(
-        <TripItem  key={trip.id} trips={trip} />
-      )))}
+      <div className="text-primaryDarker font-semibold text-xl lg:text-[2.5rem]">Hospedagens Encontradas</div>
+      <div className="text-grayPrimary text-base lg:mt-5 lg:text-xl lg:mb-10">{trips.length > 0 ?'Listamos as melhores opções para você!': 'Não encontramos nada nas filtragens!'}</div>
+      <div className="flex flex-col gap-4 lg:grid lg:grid-cols-4 lg:gap-10">
+        {(trips.map((trip)=>(
+          <TripItem  key={trip.id} trips={trip} />
+        )))}
+      </div>
     </div>
   );
 };
