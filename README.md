@@ -8,7 +8,7 @@
 
 ## 💬 Sobre a aplicação
 
-A aplicação tem como objetivo a criação de um sistema de reserva de viagens com uma plataforma bastante intuitiva que permite aos viajantes explorar e reservar suas aventuras com facilidade. Com uma ampla seleção de destinos, opções de hospedagem, voos e atividades, o aplicativo oferece uma experiência personalizada, adaptada às preferências individuais de cada usuário. Com recursos como avaliações de usuários, dicas de viagem e itinerários personalizados, a aplicação visa simplificar o processo de planejamento, garantindo que os viajantes encontrem as melhores opções e tenham uma experiência memorável em cada jornada.
+A aplicação tem como objetivo a criação de um sistema de reserva de viagens com uma plataforma bastante intuitiva que permite aos viajantes explorar e reservar suas aventuras com facilidade. Com uma ampla seleção de destinos, opções de hospedagem e atividades, o aplicativo oferece uma experiência personalizada, adaptada às preferências individuais de cada usuário. Com recursos como avaliações de usuários, dicas de viagem e itinerários personalizados, a aplicação visa simplificar o processo de planejamento, garantindo que os viajantes encontrem as melhores opções e tenham uma experiência memorável em cada jornada.
 
 ## :memo: Objetivos Gerais
 * Facilitar o processo de reserva com uma ampla variedade de opções;
@@ -28,25 +28,24 @@ A aplicação tem como objetivo a criação de um sistema de reserva de viagens 
 * Integrar APIs de terceiros para obter informações atualizadas sobre as opções de reserva.
 * Implementar a integração com a API do Stripe para processar pagamentos de forma segura.
 
-4. ***Experiência personalizada***
+3. ***Experiência personalizada***
 * Armazenar e gerenciar o histórico de reservas dos usuários.
 * Implementar um sistema de recomendações de viagem com base nos interesses e histórico de reservas dos usuários, fornecendo sugestões relevantes para tornar a experiência mais personalizada.
 
-5. ***Validações***
+4. ***Validações***
 
 * Criar um formulário de reserva usando o React Hook Form para coletar informações do usuário, como datas, número de hóspedes, preferências, etc.
 * Validar e verificar os dados do formulário antes de prosseguir para o checkout.
 * Lidar com erros de validação de formulário e fornecer feedback adequado ao usuário.
 * Tratar erros de integração com APIs externas e exibir mensagens de erro relevantes.
 
-6. ***Processamento de pagamentos***
+5. ***Processamento de pagamentos***
 
 * Integrar o Stripe para processar pagamentos com cartão de crédito ou outros métodos de pagamento suportados.
 * Implementar um fluxo de pagamento seguro, onde as informações do cartão do usuário são tratadas de forma segura e os pagamentos são processados com sucesso.
 Gerenciamento de erros e feedback:
 
-
-7. ***Testes e otimização***
+6. ***Testes e otimização***
 
 * Escrever testes automatizados para garantir que as funcionalidades principais da aplicação estejam funcionando corretamente.
 * Otimizar o desempenho da aplicação, melhorando o tempo de carregamento e a responsividade.
