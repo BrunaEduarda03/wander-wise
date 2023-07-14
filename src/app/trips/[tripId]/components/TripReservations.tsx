@@ -73,7 +73,10 @@ function TripReservations({tripId,maxGuests,tripStartDate,tripEndDate,pricePerDa
   const startDate = watch("startDate");
   const endDate = watch("endDate");
   return (
-    <div className='flex flex-col px-5'>
+    <div className='flex flex-col px-5 lg:min-w-[380px] lg:p-5 lg:border-grayLighter lg:border lg:rounded-lg lg:shadow-md'>
+      <p className='text-primaryDarker text-xl mb-4 hidden lg:block'>
+        <span className='font-semibold'>R${pricePerDay}</span>/Dia
+      </p>
       <div className="flex gap-4">
         <Controller
         name='startDate'
@@ -147,7 +150,7 @@ function TripReservations({tripId,maxGuests,tripStartDate,tripEndDate,pricePerDa
         {startDate && endDate ? `R$${differenceInDays(endDate, startDate) * pricePerDay}` ?? 1 : "R$0"}
         </p>
       </div>
-      <div className='w-full border-b border-b-grayLighter pb-10'>
+      <div className='w-full border-b border-b-grayLighter pb-10 lg:border-none lg:pb-0'>
         <Button 
         variant='primary' 
         className='mt-3 w-full'

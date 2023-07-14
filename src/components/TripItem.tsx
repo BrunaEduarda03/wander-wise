@@ -19,7 +19,7 @@ const TripItem = ({trips}:TripItemProps) =>{
           style={{objectFit:'cover'}} />
         </div>
         
-        <h2 className='font-medium mt-2'>{trips.name}</h2>
+        <h2 className='font-medium mt-2 lg:'>{trips.name}</h2>
         <div className='flex items-center gap-3 my-1' >
           <ReactCountryFlag countryCode={trips.countryCode} svg />
           <p className='text-grayPrimary'>{trips.location}</p>
