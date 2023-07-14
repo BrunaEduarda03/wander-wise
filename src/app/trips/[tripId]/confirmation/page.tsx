@@ -81,7 +81,7 @@ function TripConfirmation({params}:{params:{tripId:string}}) {
 
 
   return (
-    <div className='container mx-auto p-5' >
+    <div className='container mx-auto p-5 lg:max-w-[600px]' >
       <div className="flex flex-col">
         <h2 className='text-primaryDarker font-semibold text-xl'>Sua viagem</h2>
           {/* CARD */}  
