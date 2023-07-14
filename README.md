@@ -78,14 +78,25 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
   - Stripe
 
 ## 💻 Figma
+Mobile:iphone:
 ### Home/Busca 
 ![Captura de tela de 2023-07-10 16-31-40](https://github.com/BrunaEduarda03/Trips/assets/73250271/29cd64ae-a501-464a-9c8a-723093c64337)
 
 ### Hospedagem
 ![Captura de tela de 2023-07-10 16-56-36](https://github.com/BrunaEduarda03/Trips/assets/73250271/a246416e-4462-4b6c-8ae1-097c8066599e)
 
-### Viagens
+### Minhas Viagens
 ![Captura de tela de 2023-07-10 17-00-00](https://github.com/BrunaEduarda03/Trips/assets/73250271/44d47b89-6de5-4410-90a0-deca37e8561b)
+
+Desktop 🖥️
+### Home/Busca 
+![Captura de tela de 2023-07-14 11-53-53](https://github.com/BrunaEduarda03/wander-wise/assets/73250271/fac849fb-7cd7-4d1b-b8b1-35bcf8cbe3a8)
+
+### Hospedagem
+![Captura de tela de 2023-07-14 11-58-48](https://github.com/BrunaEduarda03/wander-wise/assets/73250271/36fc6d78-48f5-428f-a198-4add9144f3ab)
+
+### Minhas Viagens
+![Captura de tela de 2023-07-14 11-59-16](https://github.com/BrunaEduarda03/wander-wise/assets/73250271/850dc5ba-0cdd-4526-bc1e-0c55699c6ff3)
 
 
 ## 💻 Preview
