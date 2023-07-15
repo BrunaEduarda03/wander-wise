@@ -55,27 +55,17 @@ Gerenciamento de erros e feedback:
 Aplicação completa para viagens desenvolvida em 2 camadas(Back-end/Front-end).
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- **UI/UX**
-- Figma
-
-- **Backend**           
-  - PrismaORM
-  - Beekeper
-  - PostgreSQL
-  - Supabase
-  - TypeScript
-  - ESLint
-  
-- **FrontEnd**
-  - NextJs
-  - TypeScript
-  - TailwindCss
-  - ESLint
-  - React-toastify
-  - Docker
-
-- **Serviço de Pagamentos**
-  - Stripe
+- Figma    
+- Prisma
+- PostgreSQL
+- Supabase
+- TypeScript
+- NextJs 13
+- ESLint
+- TailwindCss
+- React-toastify
+- Stripe
+- React Hook Form
 
 ## 💻 Figma
 * **Mobile:iphone:**
