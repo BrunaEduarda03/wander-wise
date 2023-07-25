@@ -15,6 +15,31 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'cf.bstatic.com',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'static51.com-hotel.com',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'static51.com-hotel.com',
+        port: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'q-xx.bstatic.com',
+        port:'',
+      },
+      {
+        protocol: 'https',
+        hostname: 'dynamic-media-cdn.tripadvisor.com',
+        port:'',
+      }
     ],
   },
 }
