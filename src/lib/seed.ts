@@ -2,198 +2,533 @@ import { prisma } from "./prisma";
 
 
 async function main() {
-  await prisma.trip.createMany({
-    data: [
-      {
-        name: "Hotel Aurora",
-        description:
-          "O Hotel Aurora é um refúgio encantador situado em meio às majestosas montanhas. Com seus jardins exuberantes e uma arquitetura elegante, o Aurora oferece quartos espaçosos e bem decorados, gastronomia premiada, um spa luxuoso e uma variedade de instalações de lazer. É o lugar perfeito para os viajantes que buscam uma escapada relaxante e rejuvenescedora, proporcionando uma experiência memorável em um cenário deslumbrante.",
-        startDate: new Date("2023-07-03"),
-        endDate: new Date("2023-07-30"),
-        location: "Amalfi, Itália",
-        countryCode: "IT",
-        coverImage:
-          "https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=M3wxMA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        imagesUrl: [
-          "https://images.unsplash.com/photo-1538683270504-3d09ad7ae739?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1528215747454-3d0e0902fff2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80",
-          "https://images.unsplash.com/photo-1534612899740-55c821a90129?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    await prisma.trip.createMany({
+        data: [
+            {
+                name: "Hotel Aurora",
+                description:
+                    "O Hotel Aurora é um refúgio encantador situado em meio às majestosas montanhas. Com seus jardins exuberantes e uma arquitetura elegante, o Aurora oferece quartos espaçosos e bem decorados, gastronomia premiada, um spa luxuoso e uma variedade de instalações de lazer. É o lugar perfeito para os viajantes que buscam uma escapada relaxante e rejuvenescedora, proporcionando uma experiência memorável em um cenário deslumbrante.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2023-11-30"),
+                location: "Amalfi, Itália",
+                locationDescription: "Amalfi, Itália, é uma encantadora cidade costeira situada na espetacular Costa Amalfitana. Cercada por montanhas íngremes e o azul intenso do Mar Tirreno, Amalfi é conhecida por sua arquitetura medieval pitoresca e suas ruas estreitas repletas de história. Com uma impressionante catedral do século IX, praças charmosas e vistas panorâmicas de tirar o fôlego, a cidade atrai turistas em busca de beleza natural, cultura rica e uma experiência gastronômica deliciosa com pratos de frutos do mar frescos e limoncello local. Um destino verdadeiramente inesquecível na Itália.",
+                latitude: 40.634,
+                longitude: 14.602,
+                countryCode: "IT",
+                coverImage:
+                    "https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=M3wxMA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                imagesUrl: [
+                    "https://images.unsplash.com/photo-1538683270504-3d09ad7ae739?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1528215747454-3d0e0902fff2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80",
+                    "https://images.unsplash.com/photo-1534612899740-55c821a90129?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                ],
+                pricePerDay: 250,
+                highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
+                recommended: true,
+                maxGuests: 5,
+            },
+            {
+                name: "Hotel Palace",
+                description:
+                    "O Hotel Palace é uma joia da hospitalidade, um símbolo de luxo e elegância. Localizado em uma localização privilegiada, o hotel oferece aos hóspedes uma experiência verdadeiramente magnífica. Com quartos deslumbrantes, decoração sofisticada e vistas panorâmicas deslumbrantes, o Palace cativa seus visitantes desde o momento em que entram. Os serviços impecáveis ​​e a atenção aos detalhes garantem uma estadia inesquecível, enquanto os restaurantes requintados e bares elegantes satisfazem os paladares mais exigentes. Com uma ampla gama de instalações de lazer, incluindo spa, academia e piscinas deslumbrantes, o Hotel Palace oferece uma experiência de luxo incomparável para aqueles que buscam o ápice da hospitalidade e conforto.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2023-11-30"),
+                location: "New York, Estados Unidos",
+                locationDescription: "Nova York, localizada na Costa Leste dos Estados Unidos, é uma das cidades mais icônicas e vibrantes do mundo. Como o epicentro da cultura, negócios e entretenimento, ela personifica o espírito cosmopolita. Os famosos arranha-céus, como o Empire State Building e o One World Trade Center, definem o horizonte imponente da cidade. A Estátua da Liberdade, símbolo da liberdade e oportunidade, acolhe visitantes de todo o mundo. A agitação da Times Square, os teatros da Broadway e os museus renomados, como o MoMA e o Metropolitan, enriquecem a vida cultural da cidade. Nova York também é conhecida por sua diversidade culinária, com restaurantes étnicos e food trucks que satisfazem todos os paladares. Seja de dia ou de noite, Nova York nunca para, exalando uma energia contagiante e tornando-se um destino emocionante para os viajantes.",
+                latitude: 40.730,
+                longitude: -73.935,
+                countryCode: "US",
+                coverImage:
+                    "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                imagesUrl: [
+                    "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                ],
+                pricePerDay: 350,
+                highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
+                recommended: true,
+                maxGuests: 5,
+            },
+            {
+                name: "Royal Oasis",
+                description:
+                    "A Royal Oasis é um hotel de luxo exclusivo que combina uma arquitetura imponente, decoração refinada e serviços de alta qualidade para proporcionar aos seus hóspedes uma experiência inigualável. Com quartos espaçosos, restaurantes gourmet, instalações de bem-estar e um serviço impecável, este refúgio de tranquilidade e elegância é o local perfeito para aqueles que buscam o melhor em conforto e sofisticação.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2023-11-30"),
+                location: "Florença, Itália",
+                locationDescription: "Florença, situada na região da Toscana, é uma cidade italiana com um legado artístico e cultural notável. Como berço do Renascimento, suas ruas históricas abrigam algumas das obras de arte mais renomadas do mundo. O icônico Duomo, com sua cúpula de Brunelleschi, domina o horizonte, enquanto a Ponte Vecchio atravessa o rio Arno com suas lojas de joias e artesanato. Os museus, como a Galeria Uffizi e a Galeria da Academia, exibem obras-primas de Michelangelo, Leonardo da Vinci, Botticelli e muitos outros mestres. Além de seu patrimônio artístico, Florença também oferece uma experiência encantadora de gastronomia toscana, com seus vinhos, azeites e pratos tradicionais. Essa cidade cativante respira história e beleza em cada esquina, atraindo amantes de arte e entusiastas da cultura de todo o mundo.",
+                latitude: 43.769,
+                longitude: 11.255,
+                countryCode: "IT",
+                coverImage:
+                    "https://images.unsplash.com/photo-1534612899740-55c821a90129?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                imagesUrl: [
+                    "https://images.unsplash.com/photo-1538683270504-3d09ad7ae739?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1528215747454-3d0e0902fff2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80",
+                    "https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=M3wxMA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                ],
+                pricePerDay: 400,
+                highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
+                recommended: true,
+                maxGuests: 5,
+            },
+            {
+                name: "Azure Haven Retreat",
+                description:
+                    "O Azure Haven Retreat é um oásis de luxo localizado em uma ilha privativa, onde as águas cristalinas do oceano encontram praias intocadas de areia branca. Com uma arquitetura contemporânea e elegante, este hotel exclusivo oferece aos seus hóspedes uma experiência de refúgio tranquilo e sofisticado. Os quartos e suítes espaçosos e meticulosamente decorados proporcionam um ambiente sereno, enquanto os restaurantes de classe mundial oferecem uma gastronomia requintada com ingredientes frescos e sabores internacionais. Além disso, o Azure Haven Retreat oferece uma variedade de atividades de lazer, como mergulho, iatismo e relaxamento em um spa de luxo, garantindo uma experiência inesquecível de luxo à beira-mar.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2023-11-30"),
+                location: "Lago Sereno, Suíça",
+                locationDescription: "Pequeno e pitoresco, Lago Sereno é uma joia escondida situada na região de Ticino, na Suíça. Aninhado entre montanhas deslumbrantes e paisagens exuberantes, o lago oferece uma experiência tranquila e encantadora para os visitantes. Suas águas cristalinas refletem a beleza natural ao redor, proporcionando um cenário perfeito para relaxar e apreciar a serenidade do ambiente. Os arredores do lago oferecem oportunidades para caminhadas, passeios de barco e atividades ao ar livre, permitindo que os viajantes se conectem com a natureza em sua forma mais intocada. Lago Sereno é um verdadeiro refúgio para aqueles que procuram escapar da agitação e se deleitar com a beleza natural e a tranquilidade que a Suíça tem a oferecer.",
+                latitude: 45.859,
+                longitude: 9.117,
+                countryCode: "CH",
+                coverImage:
+                    "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
+                imagesUrl: [
+                    "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1528215747454-3d0e0902fff2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80",
+                    "https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=M3wxMA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                ],
+                pricePerDay: 600,
+                highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
+                recommended: true,
+                maxGuests: 5,
+            },
+            {
+                name: "Palazzo Sereno",
+                description:
+                    "O Palazzo Sereno é um hotel de luxo localizado em uma cidade histórica da Europa. Com uma arquitetura deslumbrante e um ambiente elegante, o hotel oferece aos hóspedes uma experiência exclusiva de conforto e sofisticação. Os quartos exquisitamente decorados proporcionam um refúgio tranquilo, enquanto os serviços de alta qualidade garantem uma estadia inesquecível. Com uma localização privilegiada, o Palazzo Sereno permite que os hóspedes explorem as belezas da cidade e vivenciem a cultura local com facilidade. Uma estadia neste hotel é uma verdadeira experiência de luxo e requinte.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2023-11-30"),
+                location: "Madrid, Espanha",
+                locationDescription: "Madrid, a vibrante capital da Espanha, é uma cidade que combina perfeitamente a tradição com a modernidade. Conhecida por sua rica história e cultura, Madrid oferece uma infinidade de atrações para seus visitantes. O Palácio Real, um majestoso edifício do século XVIII, é uma das principais atrações da cidade, assim como a famosa Plaza Mayor, uma praça histórica cercada por edifícios de estilo barroco. Os apaixonados por arte ficarão maravilhados com o Museu do Prado, abrigando uma coleção impressionante de obras de artistas como Goya, Velázquez e El Greco.",
+                latitude: 40.416,
+                longitude: -3.703,
+                countryCode: "ES",
+                coverImage:
+                    "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                imagesUrl: [
+                    "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=M3wxMA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                ],
+                pricePerDay: 400,
+                highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
+                recommended: false,
+                maxGuests: 5,
+            },
+            {
+                name: "Mountain Peak Lodge",
+                description:
+                    "O Mountain Haven Retreat é um hotel boutique de luxo localizado em uma região montanhosa serena, cercada por paisagens deslumbrantes e tranquilidade. Com quartos elegantemente decorados, o hotel oferece aos hóspedes uma estadia confortável e relaxante, em meio à natureza intocada. Os hóspedes podem desfrutar de refeições gourmet preparadas com ingredientes frescos e locais no restaurante do hotel, enquanto apreciam vistas deslumbrantes das montanhas. Com acesso a trilhas para caminhadas, atividades ao ar livre e um spa relaxante, o Mountain Haven Retreat proporciona aos seus hóspedes uma experiência de luxo em um refúgio natural e encantador.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2023-11-30"),
+                location: "Montreal, Canadá",
+                locationDescription: "Montreal, no Canadá, é uma cidade vibrante e cosmopolita, com uma rica herança cultural e gastronomia famosa, incluindo o saboroso sanduíche de carne defumada e poutine. Seu cenário cultural é enriquecido por festivais e eventos ao longo do ano, como o Festival Internacional de Jazz de Montreal. Com uma mistura encantadora de influências francesas e inglesas, a cidade oferece uma experiência única para os visitantes, combinando tradição e modernidade em meio a uma atmosfera acolhedora e diversificada.",
+                latitude: 45.508,
+                longitude: -73.555,
+                countryCode: "CA",
+                coverImage:
+                    "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                imagesUrl: [
+                    "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=M3wxMA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                ],
+                pricePerDay: 700,
+                highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
+                recommended: false,
+                maxGuests: 5,
+            },
+            {
+                name: "Encanto da Serra",
+                description:
+                    "O Recanto Sereno é uma pousada encantadora localizada em uma pequena cidade costeira, no litoral sul do Brasil. Com uma atmosfera acolhedora e familiar, a pousada oferece aos hóspedes uma estadia tranquila e relaxante. Os quartos são confortáveis e bem decorados, proporcionando um refúgio aconchegante. Os hóspedes podem desfrutar de um café da manhã delicioso, com opções caseiras e regionais, que é servido com carinho. Além disso, o Recanto Sereno está a uma curta caminhada da praia, permitindo que os hóspedes desfrutem de momentos de descanso e lazer à beira-mar. Com uma equipe atenciosa e simpática, o Recanto Sereno proporciona aos seus hóspedes uma estadia relaxante e memorável em um ambiente sereno no litoral do Brasil.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2023-11-30"),
+                location: "Oslo, Noruega",
+                locationDescription: "Oslo, a capital da Noruega, é uma cidade moderna e encantadora, situada em meio a uma deslumbrante paisagem natural. Rodeada por fiordes majestosos e colinas verdes, Oslo oferece aos visitantes uma combinação única de natureza e cultura urbana. Seu centro histórico é pontilhado por edifícios elegantes e parques bem cuidados, como o Parque Vigeland, famoso por suas esculturas de Gustav Vigeland. A cultura norueguesa ganha vida nos museus da cidade, como o Museu do Navio Viking, que exibe embarcações e artefatos impressionantes da era viking. Além disso, Oslo é conhecida por sua abordagem sustentável e estilo de vida ao ar livre, com amplos espaços verdes, ciclovias e uma forte conexão com a natureza, tornando-a um destino atraente para os amantes da vida ao ar livre e da cultura nórdica.",
+                latitude: 59.911,
+                longitude: 10.757,
+                countryCode: "NO",
+                coverImage:
+                    "https://images.unsplash.com/photo-1610530531783-56a4e92a3305?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                imagesUrl: [
+                    "https://images.unsplash.com/photo-1519552928909-67ca7aef9265?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80",
+                    "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=M3wxMA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                ],
+                pricePerDay: 300,
+                highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
+                recommended: false,
+                maxGuests: 5,
+            },
+            {
+                name: "Rancho Sereno",
+                description:
+                    "O Rancho Sereno é uma fazenda encantadora situada em uma região rural tranquila. Com acomodações simples e acolhedoras, o rancho oferece aos visitantes uma experiência autêntica de vida no campo. Os hóspedes podem desfrutar de momentos de paz e tranquilidade em meio à natureza exuberante, aproveitando trilhas para caminhadas, passeios a cavalo e atividades ao ar livre.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2023-11-30"),
+                location: "Amsterdam, Holanda",
+                locationDescription: "Amsterdã, a encantadora capital da Holanda, é conhecida por seus canais pitorescos, arquitetura charmosa dos séculos XVII e XVIII, e rica cena cultural. Com museus renomados, como o Rijksmuseum e o Museu Van Gogh, a cidade atrai amantes de arte de todo o mundo. Os famosos canais e a cultura da bicicleta conferem uma atmosfera única e relaxada à cidade, enquanto a vida noturna vibrante e a diversidade culinária acrescentam um toque moderno à experiência em Amsterdã. Um destino cativante que combina tradição e modernidade em um cenário espetacular.",
+                latitude: 52.377,
+                longitude: 4.897,
+                countryCode: "NL",
+                coverImage:
+                    "https://images.unsplash.com/photo-1500076656116-558758c991c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+                imagesUrl: [
+                    "https://images.unsplash.com/photo-1596753365498-2d23bbfcbc24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1512237798647-84b57b22b517?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1509826069158-41fafc8a4a42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1534&q=80",
+                ],
+                pricePerDay: 100,
+                highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
+                recommended: false,
+                maxGuests: 5,
+            },
+            {
+                name: "Chalé Serenidade",
+                description:
+                    "O Chalé Serenidade é um refúgio encantador situado em uma área montanhosa pitoresca. Com sua arquitetura charmosa e ambiente acolhedor, o chalé oferece aos hóspedes uma estadia tranquila e relaxante. Os quartos são aconchegantes e bem decorados, proporcionando um ambiente agradável para descansar e apreciar a beleza da natureza ao redor. Os hóspedes podem desfrutar de momentos de paz em frente à lareira ou explorar trilhas nas proximidades. Com sua localização isolada, o Chalé Serenidade é perfeito para aqueles que buscam uma escapada serena e acolhedora nas montanhas.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2023-11-30"),
+                location: "Paris, França",
+                locationDescription: "Paris, a deslumbrante capital da França, é uma cidade icônica que personifica o romance, a arte e a cultura. Conhecida como a 'Cidade Luz', Paris encanta seus visitantes com a majestosa Torre Eiffel, os magníficos museus, como o Louvre e o Musée d'Orsay, e as impressionantes catedrais, como a Notre-Dame. Suas charmosas ruas de paralelepípedos, cafés aconchegantes e boutiques elegantes criam uma atmosfera romântica e sofisticada. A gastronomia parisiense é incomparável, com bistrôs encantadores e patisseries que oferecem delícias irresistíveis. Paris é uma cidade que exala história, arte e beleza, atraindo apaixonados por sua elegância atemporal e sua influência cultural mundial.",
+                latitude: 48.858,
+                longitude: 2.294,
+                countryCode: "FR",
+                coverImage:
+                    "https://images.unsplash.com/photo-1515496281361-241a540151a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+                imagesUrl: [
+                    "https://images.unsplash.com/photo-1591825729269-caeb344f6df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1545158535-c3f7168c28b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                    "https://images.unsplash.com/photo-1614267157481-ca2b81ac6fcc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+                ],
+                pricePerDay: 200,
+                highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
+                recommended: false,
+                maxGuests: 5,
+            },
+            {
+                name: "Hotel Colline de France",
+                description: "Com uma decoração clássica, os quartos dispõem de ar-condicionado, aquecedor, TV de tela plana a cabo, Netflix, cafeteira, mesa de trabalho e frigobar, enquanto alguns ainda tem uma lareira. Já os banheiros privativos incluem um chuveiro, produtos de banho de cortesia e secador de cabelo. O Mini Mundo fica a 3,9 km e o Hollywood Dream Cars - Museu do Automóvel fica a apenas 850 metros. Já o Aeroporto Internacional de Porto Alegre - Salgado filho fica a 119 km.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2024-07-30"),
+                location: "Rio grande do sul, Brasil",
+                locationDescription: "Gramado é uma charmosa cidade localizada no estado do Rio Grande do Sul, Brasil. Conhecida por sua arquitetura europeia, clima frio e encantadoras paisagens naturais, a cidade é um destino turístico popular durante todo o ano. Gramado é famosa por seus festivais de cinema, o Natal Luz - um espetáculo de luzes e decorações natalinas -, além de suas deliciosas fábricas de chocolate e tradicionais fondues. Com um ambiente acolhedor e aconchegante, Gramado é o lugar ideal para os amantes de natureza, gastronomia e cultura.",
+                latitude: -29.3747,
+                longitude: -50.8764,
+                countryCode: "BR",
+                coverImage: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/302369668.jpg?k=3a91ae174c4610bbdadca58f8a34d9f8e46a6c9368decc693ad23bf8992af7c1&o=&hp=1",
+                imagesUrl: [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/232422361.jpg?k=41dc7557ef6b9414f8173be130e377c01330aedf3325ac1115f43f35773617d5&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/277414709.jpg?k=dca68808e825c2a7315cf70f85c03c229053170c4e1e6073dc21d1418140af8d&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1280x900/245878621.jpg?k=575e36d5066ff7232acb0e350a7bd246b949fab761433176409ebe4729a0962d&o=&hp=1",
+                ],
+                pricePerDay: 1700,
+                highlights: [
+                    "Café da manhã incluso",
+                    "Piscina",
+                    "Wifi grátis",
+                    "Estacionamento grátis",
+                    "Academia",
+                    "Luxuoso"
+                ],
+                recommended: true,
+                maxGuests: 10,
+            },
+            {
+                name: "Hotel Le Renard",
+                description: "O Hotel Le Renard - Campos do Jordao oferece acomodações 5 estrelas com Wi-Fi e estacionamento gratuitos em Campos do Jordão. A propriedade dispõe de piscina aquecida e quartos amplos com TV LCD a cabo e banheiro com piso aquecido. Os quartos luxuosos do Hotel Le Renard - Campos do Jordao possuem cofre e telefone. As unidades contam com vista panorâmica, toalheiros aquecidos e produtos de banho de qualidade. Algumas acomodações incluem lareira e banheira de hidromassagem. O hotel serve sopas e caldos de cortesia para o jantar.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2024-07-30"),
+                location: "São Paulo, Brasil",
+                locationDescription: "São Paulo é uma cidade brasileira, capital do estado homônimo e principal centro financeiro, corporativo e mercantil da América do Sul. É a cidade mais populosa do Brasil, do continente americano, da lusofonia e de todo o hemisfério sul. São Paulo é a cidade brasileira mais influente no cenário global, sendo, em 2016, a 11.ª cidade mais globalizada do planeta, recebendo a classificação de cidade global alfa, por parte do Globalization and World Cities Study Group & Network (GaWC). O lema da cidade, presente em seu brasão oficial, é Non ducor, duco, frase latina que significa Não sou conduzido, conduzo.",
+                latitude: -23.5505,
+                longitude: -46.6333,
+                countryCode: "BR",
+                coverImage: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/434477645.jpg?k=9460fb5a260a1b9264e1e21c95a35179867b60e96c4d0a52ec642019061b8460&o=&hp=1",
+                imagesUrl: [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1280x900/102885839.jpg?k=3f7ad24c24c205e89263763236b440d0d0a31557dec484ccfbb98f0efb24240f&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1280x900/434477635.jpg?k=57c4392980fcc87b1f4ddf6c5119e55c516924f0c6edc4db0112768439f1b7d6&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1280x900/407115332.jpg?k=44c6072bd0543095a7a3902aa228217ff81ce538a892366bfcef1f53506d3229&o=&hp=1",
+                ],
+                pricePerDay: 850,
+                highlights: [
+                    "Café da manhã incluso",
+                    "Piscina",
+                    "Wifi grátis",
+                    "Estacionamento grátis",
+                    "Vista paradisíaca",
+                    "Luxuoso"
+                ],
+                recommended: true,
+                maxGuests: 7,
+            },
+            {
+                name: "Casas Brancas Boutique Hotel & Spa",
+                description: "O Casas Brancas é um hotel boutique luxuoso, localizado em Búzios, com vista do mar a partir de seus terraços amplos. As instalações incluem uma academia com equipamentos aeróbicos. O Casas Brancas Boutique Hotel & Spa combina a arquitetura mediterrânea com um design minimalista para criar um ambiente descontraído. Todos os quartos são equipados com ar-condicionado, TV a cabo, frigobar e cofre. O spa dispõe de banheira de hidromassagem com vista da Baía de Búzios e oferece uma variedade de massagens e tratamentos de beleza.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2024-07-30"),
+                location: "Rio de Janeiro, Brasil",
+                locationDescription: "Rio de Janeiro é um município brasileiro, capital do estado homônimo, situado no Sudeste do país. Maior destino turístico internacional no Brasil, da América Latina e de todo o Hemisfério Sul, a capital fluminense é a cidade brasileira mais conhecida no exterior, funcionando como um espelho, ou retrato nacional, seja positiva ou negativamente. É a segunda maior metrópole do Brasil (depois de São Paulo), a sexta maior da América e a trigésima quinta do mundo.",
+                latitude: -22.9068,
+                longitude: -43.1729,
+                countryCode: "BR",
+                coverImage: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/237954030.jpg?k=62d1ce5a98364b107318fc63ea04e6de096fbf8ed51bb4399a04bb16e2562201&o=&hp=1",
+                imagesUrl: [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1280x900/390681079.jpg?k=698387451a0bd875b6821805a83817edfea0fac0b439b8b9b4df98cf27901ca0&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1280x900/46954401.jpg?k=63888a2c5fa55fefa4b43ae154f5d78f8f2db41f6d5fb32cf20b6173bc6ec903&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1280x900/46915936.jpg?k=a9c4f4dbfcd80adb6c4e20f7b4ece3a29b59ad82cc32a4638f8b01fffcb6f9ca&o=&hp=1",
+                ],
+                pricePerDay: 1600,
+                highlights: [
+                    "Café da manhã incluso",
+                    "Piscina",
+                    "Wifi grátis",
+                    "Estacionamento grátis",
+                    "Vista paradisíaca",
+                    "Luxuoso"
+                ],
+                recommended: true,
+                maxGuests: 10,
+            },
+            {
+                name: "Grand Resort Maldivas",
+                description: "Fuja para o paraíso no Grand Resort Maldivas. Este resort de luxo oferece uma experiência única, com praias intocadas, águas cristalinas e um ambiente sereno e relaxante. Desfrute de acomodações de primeira classe, serviço impecável e uma variedade de atividades emocionantes, como mergulho, snorkeling e passeios de barco. Aproveite o pôr do sol deslumbrante e a exuberante vegetação das Maldivas em um ambiente exclusivo e requintado.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2024-07-30"),
+                location: "Maldivas",
+                locationDescription: "As Maldivas são um paraíso tropical com praias paradisíacas de areia branca e águas cristalinas em tons de azul. Localizado no Oceano Índico, este arquipélago oferece uma experiência única de escapismo, onde você pode relaxar em privacidade e apreciar a beleza intocada da natureza. Explore a rica vida marinha, desfrute da deliciosa culinária local e mergulhe na cultura encantadora das Maldivas.",
+                latitude: -0.6933,
+                longitude: 73.1589,
+                countryCode: "MV",
+                coverImage: "https://static51.com-hotel.com/uploads/hotel/63981/photo/centara-grand-island-resort-spa-all-inclusive_153006254916.jpg",
+                imagesUrl: [
+                    "https://wetu.com/ImageHandler/w1920x1080/22297/cirm-exterior-07.jpg",
+                    "https://images.trvl-media.com/lodging/5000000/4930000/4925200/4925143/c642c84d.jpg?impolicy=fcrop&w=1200&h=800&p=1&q=medium",
+                    "https://www.zubludiving.com/images/Maldives/South-Ari-Atoll/Centara-Grand/Centara-Grand-Maldives.jpg",
+                ],
+                pricePerDay: 980,
+                highlights: [
+                    "Café da manhã incluso",
+                    "Piscina",
+                    "Wifi grátis",
+                    "Estacionamento grátis",
+                    "Vista paradisíaca",
+                    "Luxuoso"
+                ],
+                recommended: true,
+                maxGuests: 10,
+            },
+            {
+                name: "Pousada Everest",
+                description: "Viva a emoção do pico mais alto do mundo na Pousada Everest. Localizada na região de Khumbu, Nepal, esta pousada proporciona vistas deslumbrantes das majestosas montanhas do Himalaia. A Pousada Everest oferece acomodações confortáveis e aconchegantes, onde você pode descansar e se preparar para emocionantes aventuras nas trilhas próximas. Delicie-se com a autêntica culinária nepalesa e mergulhe na cultura rica e fascinante desta região icônica.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2024-07-30"),
+                location: "Khumbu, Nepal",
+                locationDescription: "Khumbu é uma região espetacularmente bela e montanhosa do Nepal, conhecida por suas montanhas imponentes, incluindo o lendário Monte Everest. Além da incrível paisagem, a região também é famosa pela rica cultura Sherpa, tradições religiosas e hospitaleira hospitalidade local. A Pousada Everest é o lugar perfeito para os amantes de montanhismo e natureza que buscam uma experiência única e inesquecível.",
+                latitude: 27.9881,
+                longitude: 86.9250,
+                countryCode: "NP",
+                coverImage: "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/251085752.jpg?k=fbb58e2b1b80f8a0fa87d2e3881e4b262cee2307cf1351c39e67aabcc32c13e8&o=",
+                imagesUrl: [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/251081009.jpg?k=a5ae84d01f57bd1f40fa2d40d0e20d68c52d88e3358e4f66df557e0485988dd4&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1280x900/268476638.jpg?k=abe71731c53a73f7da5649c4d6fbd60844512c00d0d38469bde1c37685c8ec58&o=&hp=1",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1280x900/251081011.jpg?k=277d2fe10996a6483b59430d96eadaf3f302ab6877280d7771e98df0b4780da6&o=&hp=1",
+                ],
+                pricePerDay: 700,
+                highlights: [
+                    "Café da manhã incluso",
+                    "Piscina",
+                    "Wifi grátis",
+                    "Estacionamento grátis",
+                    "Vista paradisíaca",
+                    "Luxuoso"
+                ],
+                recommended: false,
+                maxGuests: 10,
+            },
+            {
+                name: "Hotel Skyline",
+                description: "Hospede-se no coração de Tóquio no Hotel Skyline. Desfrute da agitação desta metrópole dinâmica e moderna, com uma estadia confortável e conveniente no Hotel Skyline. Os quartos espaçosos e elegantes oferecem vistas panorâmicas da cidade e todas as comodidades necessárias para uma estadia memorável. Explore as atrações icônicas de Tóquio, como a Torre de Tóquio, o Templo Senso-ji e o bairro de Shibuya, conhecido por sua animada vida noturna e cultura pop. Aproveite a deliciosa gastronomia japonesa e mergulhe na cultura única desta cidade emocionante.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2024-07-30"),
+                location: "Tóquio, Japão",
+                locationDescription: "Tóquio é uma metrópole movimentada e vibrante que combina a modernidade com a tradição. Conhecida por suas tecnologias inovadoras, cultura pop e rica herança histórica, a cidade oferece uma experiência única para os visitantes. Explore os animados mercados, os jardins tranquilos e os santuários antigos. Não deixe de experimentar a culinária japonesa autêntica e participar das festividades culturais locais. O Hotel Skyline oferece a base perfeita para explorar tudo o que Tóquio tem a oferecer.",
+                latitude: 35.682839,
+                longitude: 139.759455,
+                countryCode: "JP",
+                coverImage: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/5e/6b/27/caption.jpg?w=1200&h=-1&s=1",
+                imagesUrl: [
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/5e/68/de/caption.jpg?w=1200&h=-1&s=1",
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/5e/68/f9/caption.jpg?w=1200&h=-1&s=1",
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/9f/b9/af/caption.jpg?w=1200&h=-1&s=1",
+                ],
+                pricePerDay: 900,
+                highlights: [
+                    "Café da manhã incluso",
+                    "Piscina",
+                    "Wifi grátis",
+                    "Estacionamento grátis",
+                    "Vista paradisíaca",
+                    "Luxuoso"
+                ],
+                recommended: true,
+                maxGuests: 10,
+            },
+            {
+                name: "Pousada Natural",
+                description: "Imersão na beleza da Floresta Amazônica na Pousada na Floresta. Esta pousada ecológica oferece uma experiência única para os amantes da natureza e aventureiros. Situada em meio à exuberante selva amazônica, a pousada oferece a oportunidade de explorar a rica biodiversidade da região, com trilhas na floresta, observação de pássaros e passeios de barco pelos rios misteriosos. Delicie-se com a culinária regional, preparada com ingredientes frescos da floresta, e mergulhe na cultura indígena local através de atividades interativas.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2024-07-30"),
+                location: "Floresta Amazônica, Brasil",
+                locationDescription: "A Floresta Amazônica é uma das maravilhas naturais do mundo, abrangendo várias regiões do Brasil e de outros países sul-americanos. Conhecida por sua biodiversidade única e pela importância para o equilíbrio ambiental do planeta, a Amazônia oferece uma experiência única de conexão com a natureza selvagem. A Pousada na Floresta é um refúgio perfeito para explorar essa beleza intocada e aprender sobre as tradições e conhecimentos ancestrais dos povos indígenas que habitam a região.",
+                latitude: -3.4653,
+                longitude: -62.2159,
+                countryCode: "BR",
+                coverImage: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/5d/bd/f6/salao-eventos-aberto.jpg?w=1200&h=-1&s=1",
+                imagesUrl: [
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/00/01/9b/bar.jpg?w=1000&h=-1&s=1",
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/00/01/ac/area-de-descanso.jpg?w=1000&h=-1&s=1",
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/f5/db/7f/vista-aerea-do-fenomeno.jpg?w=1200&h=-1&s=1",
+                ],
+                pricePerDay: 1300,
+                highlights: [
+                    "Café da manhã incluso",
+                    "Piscina",
+                    "Wifi grátis",
+                    "Estacionamento grátis",
+                    "Vista paradisíaca",
+                    "Luxuoso"
+                ],
+                recommended: true,
+                maxGuests: 10,
+            },
+            {
+                name: "Padma Resort Ubud",
+                description: "Relaxe em um resort de praia paradisíaco em Bali. Este resort luxuoso oferece vistas deslumbrantes do oceano e praias de areia dourada, criando o cenário perfeito para uma escapada relaxante. Os quartos elegantemente decorados e as vilas privativas oferecem conforto e privacidade, enquanto a equipe atenciosa garante que cada detalhe de sua estadia seja perfeito. Desfrute de atividades como surfe, ioga à beira-mar e passeios de bicicleta pela bela paisagem tropical de Bali. Explore os templos sagrados, os campos de arroz verdejantes e as vibrantes cidades locais, tudo a partir da base deste resort de classe mundial.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2024-07-30"),
+                location: "Bali, Indonésia",
+                locationDescription: "Bali é uma ilha paradisíaca da Indonésia, conhecida por suas praias deslumbrantes, templos antigos e cultura rica. Com um ambiente descontraído e espiritual, Bali é um refúgio popular para viajantes que buscam relaxar e se reconectar com a natureza. A ilha também oferece uma variedade de atividades emocionantes, desde esportes aquáticos até excursões culturais. O resort de praia em Bali é uma escolha ideal para aproveitar o melhor que esta ilha mágica tem a oferecer.",
+                latitude: -8.3405,
+                longitude: 115.0920,
+                countryCode: "ID",
+                coverImage: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/f8/1c/13/padma-resort-ubud.jpg?w=1200&h=-1&s=1",
+                imagesUrl: [
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/15/29/17/padma-resort-ubud.jpg?w=1200&h=-1&s=1",
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/26/fa/cc/yoga-experience-at-bamboo.jpg?w=1200&h=-1&s=1",
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/26/fa/eb/floating-breakfast-experience.jpg?w=1200&h=-1&s=1",
+                ],
+                pricePerDay: 3750,
+                highlights: [
+                    "Café da manhã incluso",
+                    "Piscina",
+                    "Wifi grátis",
+                    "Estacionamento grátis",
+                    "Vista paradisíaca",
+                    "Luxuoso"
+                ],
+                recommended: true,
+                maxGuests: 10,
+            },
+            {
+                name: "Hotel Schloss Zermatt",
+                description: "Experimente a beleza alpina em chalés aconchegantes nos Alpes Suíços. Situados em meio a paisagens deslumbrantes de montanhas cobertas de neve, estes chalés oferecem um refúgio acolhedor e romântico. Aproveite o ambiente tranquilo e o ar puro da montanha enquanto se acomoda em confortáveis chalés de madeira. A região oferece uma ampla gama de atividades ao ar livre, como esqui, snowboard, caminhadas e mountain bike. No inverno, as pistas de esqui são perfeitas para os entusiastas dos esportes de neve, enquanto no verão, as trilhas deslumbrantes levam a vistas panorâmicas e a autênticos vilarejos alpinos.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2024-07-30"),
+                location: "Alpes Suíços",
+                locationDescription: "Os Alpes Suíços são uma cadeia montanhosa majestosa e imponente que se estende por várias regiões da Suíça. Conhecida por sua beleza natural e atividades ao ar livre durante todo o ano, a região é um destino popular para os amantes da natureza e dos esportes de inverno. Os chalés aconchegantes nos Alpes Suíços oferecem uma experiência autêntica e serena em meio a uma das paisagens mais impressionantes do mundo.",
+                latitude: 46.8182,
+                longitude: 8.2275,
+                countryCode: "CH",
+                coverImage: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/86/5d/f6/schlosshotel-life-style.jpg?w=1200&h=-1&s=1",
+                imagesUrl: [
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/86/5d/cd/schlosshotel-life-style.jpg?w=1200&h=-1&s=1",
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/9f/df/70/bar.jpg?w=1200&h=-1&s=1",
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/86/5d/ef/schlosshotel-life-style.jpg?w=1200&h=-1&s=1",
+                ],
+                pricePerDay: 2500,
+                highlights: [
+                    "Café da manhã incluso",
+                    "Piscina",
+                    "Wifi grátis",
+                    "Estacionamento grátis",
+                    "Vista paradisíaca",
+                    "Luxuoso"
+                ],
+                recommended: true,
+                maxGuests: 10,
+            },
+            {
+                name: "Hotel Marriott Marquis",
+                description: "Descubra o luxo e a grandiosidade em um hotel de luxo em Dubai. Situado no coração desta cidade moderna e extravagante, o hotel oferece uma estadia sofisticada e opulenta. Os quartos espaçosos são decorados com elegância e oferecem vistas deslumbrantes do horizonte de Dubai. Relaxe em piscinas de tirar o fôlego, desfrute de refeições gourmet em restaurantes renomados e explore as atrações icônicas da cidade, como o Burj Khalifa e o Dubai Mall. Esta experiência inigualável em Dubai é perfeita para aqueles que desejam vivenciar o melhor da hospitalidade de luxo.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2024-07-30"),
+                location: "Dubai, Emirados Árabes Unidos",
+                locationDescription: "Dubai é uma cidade moderna e extravagante nos Emirados Árabes Unidos, conhecida por seus arranha-céus icônicos, compras de luxo e estilo de vida luxuoso. Com praias deslumbrantes, desertos misteriosos e uma vibrante cena cultural, Dubai oferece uma experiência única que combina o tradicional com o contemporâneo. O hotel de luxo em Dubai é o lugar perfeito para vivenciar o luxo e a grandiosidade desta cidade futurista.",
+                latitude: 25.276987,
+                longitude: 55.296249,
+                countryCode: "AE",
+                coverImage: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/29/9c/0e/exterior.jpg?w=1200&h=-1&s=1",
+                imagesUrl: [
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/0a/a7/43/la-farine--v16977016.jpg?w=1200&h=-1&s=1",
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/29/9c/92/aqua-outdoor-pool-deck.jpg?w=1200&h=-1&s=1",
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/29/9c/7e/saray-spa-dead-sea-floatation.jpg?w=1200&h=-1&s=1",
+                ],
+                pricePerDay: 860,
+                highlights: [
+                    "Café da manhã incluso",
+                    "Piscina",
+                    "Wifi grátis",
+                    "Estacionamento grátis",
+                    "Vista paradisíaca",
+                    "Luxuoso"
+                ],
+                recommended: true,
+                maxGuests: 10,
+            },
+            {
+                name: "Vila Caribe",
+                description: "Encante-se com a história em uma vila histórica em Cartagena. Localizada na costa caribenha da Colômbia, Cartagena é uma cidade encantadora e repleta de história colonial. A vila histórica oferece a oportunidade de se hospedar em casas tradicionais restauradas, repletas de charme e autenticidade. Explore as ruas de paralelepípedos, as praças pitorescas e as muralhas antigas que cercam a cidade. Descubra a rica herança cultural de Cartagena através de museus, igrejas e festivais tradicionais. Aproveite a deliciosa culinária caribenha e as praias de águas cristalinas nesta cidade encantadora.",
+                startDate: new Date("2023-07-03"),
+                endDate: new Date("2024-07-30"),
+                location: "Cartagena, Colômbia",
+                locationDescription: "Cartagena é uma cidade histórica e encantadora na costa caribenha da Colômbia. Com sua arquitetura colonial, cores vibrantes e rica cultura afro-caribenha, Cartagena oferece uma experiência única que combina a história com o charme do Caribe. A vila histórica de Cartagena é protegida como Patrimônio Mundial da UNESCO e proporciona uma viagem no tempo através das ruas e edifícios que contam a história rica da cidade.",
+                latitude: 10.3910,
+                longitude: -75.4794,
+                countryCode: "CO",
+                coverImage: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/de/fd/73/vista-interna.jpg?w=1200&h=-1&s=1",
+                imagesUrl: [
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/3e/73/9f/hotel-caribe.jpg?w=1200&h=-1&s=1",
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/3e/73/18/hotel-caribe.jpg?w=1200&h=-1&s=1",
+                    "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/de/f8/c9/colonial-hall.jpg?w=1200&h=-1&s=1",
+                ],
+                pricePerDay: 760,
+                highlights: [
+                    "Café da manhã incluso",
+                    "Piscina",
+                    "Wifi grátis",
+                    "Estacionamento grátis",
+                    "Vista paradisíaca",
+                    "Luxuoso"
+                ],
+                recommended: true,
+                maxGuests: 10,
+            },
         ],
-        pricePerDay: 250,
-        highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
-        recommended: true,
-        maxGuests: 5,
-      },
-      {
-        name: "Hotel Palace",
-        description:
-          "O Hotel Palace é uma joia da hospitalidade, um símbolo de luxo e elegância. Localizado em uma localização privilegiada, o hotel oferece aos hóspedes uma experiência verdadeiramente magnífica. Com quartos deslumbrantes, decoração sofisticada e vistas panorâmicas deslumbrantes, o Palace cativa seus visitantes desde o momento em que entram. Os serviços impecáveis ​​e a atenção aos detalhes garantem uma estadia inesquecível, enquanto os restaurantes requintados e bares elegantes satisfazem os paladares mais exigentes. Com uma ampla gama de instalações de lazer, incluindo spa, academia e piscinas deslumbrantes, o Hotel Palace oferece uma experiência de luxo incomparável para aqueles que buscam o ápice da hospitalidade e conforto.",
-        startDate: new Date("2023-07-03"),
-        endDate: new Date("2023-07-30"),
-        location: "New York, Estados Unidos",
-        countryCode: "US",
-        coverImage:
-          "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        imagesUrl: [
-          "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        ],
-        pricePerDay: 350,
-        highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
-        recommended: true,
-        maxGuests: 5,
-      },
-      {
-        name: "Royal Oasis",
-        description:
-          "A Royal Oasis é um hotel de luxo exclusivo que combina uma arquitetura imponente, decoração refinada e serviços de alta qualidade para proporcionar aos seus hóspedes uma experiência inigualável. Com quartos espaçosos, restaurantes gourmet, instalações de bem-estar e um serviço impecável, este refúgio de tranquilidade e elegância é o local perfeito para aqueles que buscam o melhor em conforto e sofisticação.",
-        startDate: new Date("2023-07-03"),
-        endDate: new Date("2023-07-30"),
-        location: "Florença, Itália",
-        countryCode: "IT",
-        coverImage:
-          "https://images.unsplash.com/photo-1534612899740-55c821a90129?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        imagesUrl: [
-          "https://images.unsplash.com/photo-1538683270504-3d09ad7ae739?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1528215747454-3d0e0902fff2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80",
-          "https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=M3wxMA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        ],
-        pricePerDay: 400,
-        highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
-        recommended: true,
-        maxGuests: 5,
-      },
-      {
-        name: "Azure Haven Retreat",
-        description:
-          "O Azure Haven Retreat é um oásis de luxo localizado em uma ilha privativa, onde as águas cristalinas do oceano encontram praias intocadas de areia branca. Com uma arquitetura contemporânea e elegante, este hotel exclusivo oferece aos seus hóspedes uma experiência de refúgio tranquilo e sofisticado. Os quartos e suítes espaçosos e meticulosamente decorados proporcionam um ambiente sereno, enquanto os restaurantes de classe mundial oferecem uma gastronomia requintada com ingredientes frescos e sabores internacionais. Além disso, o Azure Haven Retreat oferece uma variedade de atividades de lazer, como mergulho, iatismo e relaxamento em um spa de luxo, garantindo uma experiência inesquecível de luxo à beira-mar.",
-        startDate: new Date("2023-07-03"),
-        endDate: new Date("2023-07-30"),
-        location: "Lago Sereno, Suíça",
-        countryCode: "CH",
-        coverImage:
-          "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
-        imagesUrl: [
-          "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1528215747454-3d0e0902fff2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80",
-          "https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=M3wxMA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        ],
-        pricePerDay: 600,
-        highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
-        recommended: true,
-        maxGuests: 5,
-      },
-      {
-        name: "Palazzo Sereno",
-        description:
-          "O Palazzo Sereno é um hotel de luxo localizado em uma cidade histórica da Europa. Com uma arquitetura deslumbrante e um ambiente elegante, o hotel oferece aos hóspedes uma experiência exclusiva de conforto e sofisticação. Os quartos exquisitamente decorados proporcionam um refúgio tranquilo, enquanto os serviços de alta qualidade garantem uma estadia inesquecível. Com uma localização privilegiada, o Palazzo Sereno permite que os hóspedes explorem as belezas da cidade e vivenciem a cultura local com facilidade. Uma estadia neste hotel é uma verdadeira experiência de luxo e requinte.",
-        startDate: new Date("2023-07-03"),
-        endDate: new Date("2023-07-30"),
-        location: "Madrid, Espanha",
-        countryCode: "ES",
-        coverImage:
-          "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        imagesUrl: [
-          "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=M3wxMA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        ],
-        pricePerDay: 400,
-        highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
-        recommended: false,
-        maxGuests: 5,
-      },
-      {
-        name: "Mountain Peak Lodge",
-        description:
-          "O Mountain Haven Retreat é um hotel boutique de luxo localizado em uma região montanhosa serena, cercada por paisagens deslumbrantes e tranquilidade. Com quartos elegantemente decorados, o hotel oferece aos hóspedes uma estadia confortável e relaxante, em meio à natureza intocada. Os hóspedes podem desfrutar de refeições gourmet preparadas com ingredientes frescos e locais no restaurante do hotel, enquanto apreciam vistas deslumbrantes das montanhas. Com acesso a trilhas para caminhadas, atividades ao ar livre e um spa relaxante, o Mountain Haven Retreat proporciona aos seus hóspedes uma experiência de luxo em um refúgio natural e encantador.",
-        startDate: new Date("2023-07-03"),
-        endDate: new Date("2023-07-30"),
-        location: "Montreal, Canadá",
-        countryCode: "CA",
-        coverImage:
-          "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        imagesUrl: [
-          "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=M3wxMA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        ],
-        pricePerDay: 700,
-        highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
-        recommended: false,
-        maxGuests: 5,
-      },
-      {
-        name: "Encanto da Serra",
-        description:
-          "O Recanto Sereno é uma pousada encantadora localizada em uma pequena cidade costeira, no litoral sul do Brasil. Com uma atmosfera acolhedora e familiar, a pousada oferece aos hóspedes uma estadia tranquila e relaxante. Os quartos são confortáveis e bem decorados, proporcionando um refúgio aconchegante. Os hóspedes podem desfrutar de um café da manhã delicioso, com opções caseiras e regionais, que é servido com carinho. Além disso, o Recanto Sereno está a uma curta caminhada da praia, permitindo que os hóspedes desfrutem de momentos de descanso e lazer à beira-mar. Com uma equipe atenciosa e simpática, o Recanto Sereno proporciona aos seus hóspedes uma estadia relaxante e memorável em um ambiente sereno no litoral do Brasil.",
-        startDate: new Date("2023-07-03"),
-        endDate: new Date("2023-07-30"),
-        location: "Oslo, Noruega",
-        countryCode: "NO",
-        coverImage:
-          "https://images.unsplash.com/photo-1610530531783-56a4e92a3305?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        imagesUrl: [
-          "https://images.unsplash.com/photo-1519552928909-67ca7aef9265?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80",
-          "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1455587734955-081b22074882?ixlib=rb-4.0.3&ixid=M3wxMA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        ],
-        pricePerDay: 300,
-        highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
-        recommended: false,
-        maxGuests: 5,
-      },
-      {
-        name: "Rancho Sereno",
-        description:
-          "O Rancho Sereno é uma fazenda encantadora situada em uma região rural tranquila. Com acomodações simples e acolhedoras, o rancho oferece aos visitantes uma experiência autêntica de vida no campo. Os hóspedes podem desfrutar de momentos de paz e tranquilidade em meio à natureza exuberante, aproveitando trilhas para caminhadas, passeios a cavalo e atividades ao ar livre.",
-        startDate: new Date("2023-07-03"),
-        endDate: new Date("2023-07-30"),
-        location: "Amsterdam, Holanda",
-        countryCode: "NL",
-        coverImage:
-          "https://images.unsplash.com/photo-1500076656116-558758c991c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
-        imagesUrl: [
-          "https://images.unsplash.com/photo-1596753365498-2d23bbfcbc24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1512237798647-84b57b22b517?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1509826069158-41fafc8a4a42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1534&q=80",
-        ],
-        pricePerDay: 100,
-        highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
-        recommended: false,
-        maxGuests: 5,
-      },
-      {
-        name: "Chalé Serenidade",
-        description:
-          "O Chalé Serenidade é um refúgio encantador situado em uma área montanhosa pitoresca. Com sua arquitetura charmosa e ambiente acolhedor, o chalé oferece aos hóspedes uma estadia tranquila e relaxante. Os quartos são aconchegantes e bem decorados, proporcionando um ambiente agradável para descansar e apreciar a beleza da natureza ao redor. Os hóspedes podem desfrutar de momentos de paz em frente à lareira ou explorar trilhas nas proximidades. Com sua localização isolada, o Chalé Serenidade é perfeito para aqueles que buscam uma escapada serena e acolhedora nas montanhas.",
-        startDate: new Date("2023-07-03"),
-        endDate: new Date("2023-07-30"),
-        location: "Paris, França",
-        countryCode: "FR",
-        coverImage:
-          "https://images.unsplash.com/photo-1515496281361-241a540151a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
-        imagesUrl: [
-          "https://images.unsplash.com/photo-1591825729269-caeb344f6df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1545158535-c3f7168c28b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-          "https://images.unsplash.com/photo-1614267157481-ca2b81ac6fcc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        ],
-        pricePerDay: 200,
-        highlights: ["Café da manhã incluso", "Piscina", "Wifi grátis", "Estacionamento grátis", "Vista paradisíaca", "Luxuoso"],
-        recommended: false,
-        maxGuests: 5,
-      },
-    ],
-  });
+    });
 }
 
 main()
-  .then(async () => {
-    await prisma.$disconnect();
-  })
-  .catch(async (e) => {
-    console.error(e);
-    await prisma.$disconnect();
-    process.exit(1);
-  });
+    .then(async () => {
+        await prisma.$disconnect();
+    })
+    .catch(async (e) => {
+        console.error(e);
+        await prisma.$disconnect();
+        process.exit(1);
+    });
