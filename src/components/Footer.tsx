@@ -1,11 +1,8 @@
 'use client';
-
-import { useTheme } from 'next-themes';
 import Image from 'next/image'
 import React from 'react'
 
 function Footer() {
-  const { theme, setTheme } = useTheme();
   return (
     <div>
       <div className="w-full h-[1px] bg-grayLighter mt-10 mb-3"></div>
