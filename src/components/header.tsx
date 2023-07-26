@@ -1,13 +1,29 @@
 'use client';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
-import  React from 'react';
+import  React, { useEffect, useState } from 'react';
 import { AiOutlineMenu} from 'react-icons/ai';
 import Link from "next/link";
+import { Button } from 'flowbite-react';
+import { MdLightMode,MdNightlight } from "react-icons/md";
+import { DarkThemeToggle, Flowbite } from 'flowbite-react';
+import { useTheme } from "next-themes";
 
 const Header = () =>{
   const {status,data} = useSession();
   const [menuIsOpen,setMenuIsOpen] = React.useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+
+  if (!mounted) {
+    return null;
+  }
 
   const handleMenu = () => setMenuIsOpen(!menuIsOpen);
 
@@ -18,6 +34,10 @@ const Header = () =>{
     signOut();
   }
 
+  const handleToggle = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  }
+
   return (
     <div className='container mx-auto p-5 py-0 h-[93px] flex justify-between items-center lg:border-b lg:border-grayLighter ' >
       <Link href='/'>
@@ -26,14 +46,22 @@ const Header = () =>{
         </div>
       </Link>
       
+     
+        
+    
       {status === 'unauthenticated' && (
         <button onClick={handleLogIn} className='text-primary text-sm font-semibold'>Login</button>
       )}
 
       {status === 'authenticated' && data.user && (
         <div className='flex items-center gap-5 border-grayLighter border border-solid rounded-full p-2 px-3 relative'  >
+          <button onClick={handleToggle}>
+            {theme === "light" ? <MdNightlight size={18}  /> : <MdLightMode size={18} />}
+        </button>
           <AiOutlineMenu className="cursor-pointer" size={18} onClick={()=>handleMenu()}/>
           <Image src={data.user?.image!} alt={data.user?.name!} height={32} width={32} className='rounded-full shadow-md' />
+          
+      
         
        {menuIsOpen && (
             <div className="z-50 absolute top-14 left-0 w-full h-[100px] bg-white rounded-lg shadow-md flex flex-col justify-center items-center gap-2">

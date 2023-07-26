@@ -4,12 +4,15 @@ import { Poppins } from "next/font/google";
 import Header from "../components/header";
 import Footer from "@/components/Footer";
 import ToastProvider from "@/providers/toast";
+import { ThemeProvider } from "./theme-provider";
+
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600", "700", "800", "900"] });
 
 export const metadata = {
-  title: "Trips",
+  title: "WanderWise",
   description: "Sistema de Reserva de Viagens",
+  favicon: '/favicon.ico',
 };
 
 export default function RootLayout({children}: { children: React.ReactNode}) {
@@ -18,6 +21,7 @@ export default function RootLayout({children}: { children: React.ReactNode}) {
         <body className={poppins.className}>
           <NextAuthProvider>
             <ToastProvider>
+              <ThemeProvider>
               <div className="flex flex-col h-screen">
                 <div className="h-[94px]">
                   <Header />
@@ -27,6 +31,7 @@ export default function RootLayout({children}: { children: React.ReactNode}) {
                 </div>
               <Footer />
               </div>
+              </ThemeProvider>
             </ToastProvider>
           </NextAuthProvider>
         </body>
