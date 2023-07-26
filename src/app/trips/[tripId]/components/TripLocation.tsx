@@ -1,32 +1,32 @@
+'use client'
+import React from 'react';
 import Button from '@/components/Button';
-import Image from 'next/image';
-import React from 'react'
-
-interface TripLocationProps{
-  location: string;
-  locationDescription:string;
+import { Trip } from '@prisma/client';
+import GoogleMaps from './GoogleMaps';
+interface TripLocationProps {
+    location: string
+    locationDescription: string
+    trip: Trip
 }
 
-function TripLocation({location,locationDescription}:TripLocationProps) {
-  return (
-    <div className='p-5 lg:p-0 lg:mt-10 lg:pb-20'>
-      <h2 className='text-primaryDarker font-semibold mb-3 lg:text-xl lg:mb-10'>Localização</h2>
-      <div className='relative h-[480px] w-full hidden lg:block' >
-        <Image 
-        src='/map-desktop.png' 
-        alt={location} fill
-        style={{objectFit:'cover'}}
-        className='rounded-lg shadow-md'
-        />
-      </div>
-      <div>
-        <h2 className='text-primaryDarker font-semibold mb-3 mt-5'>{location}</h2>
-        <p className='text-grayPrimary text-sm leading-5 lg:text-base lg:leading-7 '>{locationDescription}</p>
-        <Button variant='outlined' className='w-full mt-5  '>Ver no Google Maps</Button>
-      </div>
+const TripLocation = ({ location, locationDescription, trip }: TripLocationProps) => {
 
-    </div>
-  )
+    const handleGoToGoogleMaps = async() => {
+        await window.open(`https://www.google.com/maps/place/${location}`, '_blank');
+    }
+
+    return (
+        <div className="p-5 lg:p-0 lg:mt-12 lg:pb-20">
+            <h2 className="font-semibold text-primaryDarker mb-5 lg:text-xl">Localização</h2>
+            
+            <div className="relative h-[480px] w-full hidden lg:block">
+                <GoogleMaps trip={trip} />
+            </div>
+            <h3 className='text-secondary text-sm font-semibold mt-3 lg:text-base lg:mt-5'>{location}</h3>
+            <p className='text-xs text-secondary mt-2 leading-5 lg:text-sm lg:mt-4'>{locationDescription}</p>
+            <Button onClick={handleGoToGoogleMaps} variant='outlined' className='w-full mt-5'>Ver no Google Maps</Button>
+        </div>
+    );
+
 }
-
-export default TripLocation
+export default TripLocation;

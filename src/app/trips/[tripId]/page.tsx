@@ -44,7 +44,7 @@ async function TripDetails({params}:{params:{tripId:string}}) {
 
       
 
-      <TripLocation location={trip.location} locationDescription={trip.locationDescription} />
+      <TripLocation location={trip.location} locationDescription={trip.locationDescription} trip={trip} />
     </div>
   )
 }
