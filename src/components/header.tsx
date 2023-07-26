@@ -4,9 +4,7 @@ import Image from 'next/image';
 import  React, { useEffect, useState } from 'react';
 import { AiOutlineMenu} from 'react-icons/ai';
 import Link from "next/link";
-import { Button } from 'flowbite-react';
 import { MdLightMode,MdNightlight } from "react-icons/md";
-import { DarkThemeToggle, Flowbite } from 'flowbite-react';
 import { useTheme } from "next-themes";
 
 const Header = () =>{
@@ -50,7 +48,12 @@ const Header = () =>{
         
     
       {status === 'unauthenticated' && (
-        <button onClick={handleLogIn} className='text-primary text-sm font-semibold'>Login</button>
+        <div className='flex items-center gap-5 border-grayLighter border border-solid rounded-full p-3 px-4 relative'>
+          <button onClick={handleLogIn} className='text-primary text-sm font-semibold'>Login</button>
+          <button onClick={handleToggle}>
+              {theme === "light" ? <MdNightlight size={18}  /> : <MdLightMode size={18} />}
+          </button>
+        </div>
       )}
 
       {status === 'authenticated' && data.user && (
