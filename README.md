@@ -92,6 +92,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Preview
 
 
+https://github.com/BrunaEduarda03/wander-wise/assets/73250271/0189c7f2-1c35-4463-ab6f-98935a6262c1
+
+**Obs:incluído dark mode**
+
 ## 🛠️ Como instalar
 
 Clone o projeto e instale as dependencias do projeto:
