@@ -21,7 +21,7 @@ export default function RootLayout({children}: { children: React.ReactNode}) {
         <body className={poppins.className}>
           <NextAuthProvider>
             <ToastProvider>
-              <ThemeProvider>
+              <ThemeProvider attribute="class" >
               <div className="flex flex-col h-screen">
                 <div className="h-[94px]">
                   <Header />

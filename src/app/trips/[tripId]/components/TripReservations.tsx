@@ -74,7 +74,7 @@ function TripReservations({tripId,maxGuests,tripStartDate,tripEndDate,pricePerDa
   const endDate = watch("endDate");
   return (
     <div className='flex flex-col px-5 lg:min-w-[380px] lg:p-5 lg:border-grayLighter lg:border lg:rounded-lg lg:shadow-md'>
-      <p className='text-primaryDarker text-xl mb-4 hidden lg:block'>
+      <p className='text-primaryDarker text-xl mb-5 hidden lg:block'>
         <span className='font-semibold'>R${pricePerDay}</span>/Dia
       </p>
       <div className="flex gap-4">
@@ -95,7 +95,7 @@ function TripReservations({tripId,maxGuests,tripStartDate,tripEndDate,pricePerDa
           selected={field.value}
           placeholderText='Data de Início' 
           onChange={field.onChange} 
-          className='w-full'
+          className='w-full dark:bg-transparent dark:text-white dark:placeholder:text-white'
           minDate={tripStartDate}
           />
   
@@ -118,7 +118,7 @@ function TripReservations({tripId,maxGuests,tripStartDate,tripEndDate,pricePerDa
               selected={field.value}
               placeholderText='Data Final' 
               onChange={field.onChange} 
-              className='w-full' 
+              className='w-full dark:bg-transparent dark:text-white dark:placeholder:text-white' 
               maxDate={tripEndDate}
               minDate={startDate ?? tripStartDate}
             />
@@ -139,7 +139,7 @@ function TripReservations({tripId,maxGuests,tripStartDate,tripEndDate,pricePerDa
           }
         })} 
         placeholder={`Número de Hóspedes (Máx ${maxGuests})`} 
-        className='mt-4' 
+        className='mt-4 dark:bg-transparent dark:text-white dark:placeholder:text-white' 
         error={!!errors?.guest}
         errorMessage={errors?.guest?.message}
         type='number'

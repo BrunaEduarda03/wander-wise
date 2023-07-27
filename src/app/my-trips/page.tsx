@@ -32,14 +32,15 @@ function Mytrips() {
   },[status,router])
   return (
     <div className='container mx-auto p-5 '>
+      <div className="flex flex-col "> 
       <div className='text-primaryDarker text-xl font-semibold mb-5'>Suas Viagens</div>
-      <div className="flex flex-col lg:grid lg:grid-cols-3 lg:gap-14">
+      <div className="flex flex-col lg:grid lg:grid-cols-3 lg:gap-14 ">
         {reservations.length > 0 ? (reservations.map((reservations)=>(
           <UserReservations fetchReservations={fetchReservations}  reservations={reservations} key={reservations.id} />
         ))):(
-          <div>
+          <div className=' flex flex-col '>
             <p className=' text-primaryDarker mt-5 text-xl '>Você não possui nenhuma reserva!</p>
-            <div className="flex flex-col mt-5 ">
+            <div className=" flex flex-col  mt-5 ">
               <Button variant='primary' onClick={()=>router.push('/')}>
                 Fazer Reserva
               </Button>
@@ -47,6 +48,7 @@ function Mytrips() {
           </div>
           ) 
         }
+      </div>
       </div>
      
     </div>
