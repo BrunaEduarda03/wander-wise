@@ -6,7 +6,8 @@
 
 </div>
 
-## 💬 Sobre a aplicação
+## 💬 Sobre a aplicação 
+⏰ Status - Projeto em andamento
 
 A aplicação tem como objetivo a criação de um sistema de reserva de viagens com uma plataforma bastante intuitiva que permite aos viajantes explorar e reservar suas aventuras com facilidade. Com uma ampla seleção de destinos, opções de hospedagem e atividades, o aplicativo oferece uma experiência personalizada, adaptada às preferências individuais de cada usuário. Com recursos como avaliações de usuários, dicas de viagem e itinerários personalizados, a aplicação visa simplificar o processo de planejamento, garantindo que os viajantes encontrem as melhores opções e tenham uma experiência memorável em cada jornada.
 
@@ -94,7 +95,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 https://github.com/BrunaEduarda03/wander-wise/assets/73250271/0189c7f2-1c35-4463-ab6f-98935a6262c1
 
-**Obs:incluído dark mode**
+**Projeto hospedado: link canto superior a direita!**
 
 ## 🛠️ Como instalar
 
