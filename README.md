@@ -7,7 +7,7 @@
 </div>
 
 ## 💬 Sobre a aplicação 
-⏰ Status - Projeto em andamento
+⏰ Status - Projeto Finalizado
 
 A aplicação tem como objetivo a criação de um sistema de reserva de viagens com uma plataforma bastante intuitiva que permite aos viajantes explorar e reservar suas aventuras com facilidade. Com uma ampla seleção de destinos, opções de hospedagem e atividades, o aplicativo oferece uma experiência personalizada, adaptada às preferências individuais de cada usuário. Com recursos como avaliações de usuários, dicas de viagem e itinerários personalizados, a aplicação visa simplificar o processo de planejamento, garantindo que os viajantes encontrem as melhores opções e tenham uma experiência memorável em cada jornada.
 
@@ -69,7 +69,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - React Hook Form
 
 ## 💻 Figma
-* **Mobile:iphone:**
+* **Mobile 📱**
 #### Home/Busca 
 ![Captura de tela de 2023-07-10 16-31-40](https://github.com/BrunaEduarda03/Trips/assets/73250271/29cd64ae-a501-464a-9c8a-723093c64337)
 
